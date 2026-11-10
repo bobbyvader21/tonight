@@ -16,20 +16,8 @@ Tonight helps you find something to do based on your mood, budget, available tim
 - **My Collection** for adding, editing, and deleting your own trivia questions and hunt prompts. Play with built-in entries, your own entries, or a mix.
 - **Tournament brackets** for 2–16 players and **pass-the-phone group voting** for 2–6 people.
 
-## Run locally
-
-Download or clone this repository, then open `index.html` in your browser. Keep the CSS, JavaScript, and data files in their original locations. Tonight uses HTML, CSS, and JavaScript and runs without a build step or backend.
-
-## Publish and update
-
-In GitHub, open **Settings → Pages**. Choose **Deploy from a branch**, select `main` and `/(root)`, then click **Save**. Keep `index.html` at the top level of the repository.
-
-To update the live site, commit your edited files to `main`. GitHub Pages automatically publishes the changes to the same address.
-
 ## Saved data
 
 Favorites, activity history, and custom entries are saved in the current browser. Use **My Collection → Export backup** to back up or transfer your custom trivia questions and hunt prompts.
-
----
 
 Created by **RBC Studios**.
