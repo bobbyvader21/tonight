@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Find a plan, decide together, and start playing. 750 activities plus ready-to-run games.">
+    <meta name="theme-color" content="#171918">
+    <title>
+      Tonight — Less deciding. More doing.
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="activities.js" defer>
+    </script>
+    <script src="trivia-bank.js" defer></script>
+    <script src="hunt-bank.js" defer></script>
+    <script src="collections.js" defer></script>
+    <script src="script.js" defer>
+    </script>
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="#">
+        tonight
+        <span>
+          ✳
+        </span>
+      </a>
+      <span class="tiny">
+        GOOD PLANS START HERE
+      </span>
+      <button id="saved" class="outline" aria-pressed="false">
+        ♡ Saved
+        <span id="count">
+          0
+        </span>
+      </button>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">
+            <span class="dot">
+            </span>
+            YOUR EVENING, UPGRADED
+          </div>
+          <h1>
+            Less deciding.
+            <br>
+            More
+            <em>
+              doing.
+            </em>
+          </h1>
+          <p>
+            Find a plan that fits your people. Then make it happen.
+            <br>
+            750 ideas. Ready-to-play kits. One less group chat debate.
+          </p>
+          <a class="primary" href="#explore">
+            Find your next plan
+            <span>
+              ↗
+            </span>
+          </a>
+          <div class="micro">
+            NO SIGN-UPS. JUST GOOD IDEAS.
+          </div>
+        </div>
+        <div class="art" aria-hidden="true">
+          <div class="orbit">
+          </div>
+          <div class="ticket ticket-one">
+            <span>
+              THE PLAN
+            </span>
+            <strong>
+              Good people.
+              <br>
+              Great stories.
+            </strong>
+            <small>
+              ADMIT YOU + YOUR FAVORITES
+            </small>
+          </div>
+          <div class="ticket ticket-two">
+            <span>
+              TONIGHT'S FORECAST
+            </span>
+            <strong>
+              100% chance
+              <br>
+              of a good time.
+            </strong>
+            <small>
+              MAKE A LITTLE ROOM FOR FUN
+            </small>
+          </div>
+          <div class="star">
+            ✳
+          </div>
+          <div class="sticker">
+            GO MAKE
+            <br>
+            A MEMORY ↗
+          </div>
+        </div>
+      </section>
+      <nav class="section-nav" aria-label="Website sections">
+        <a href="#explore">
+          Explore plans
+        </a>
+        <a href="#kits">
+          Activity kits
+        </a>
+        <a href="#voting">
+          Decide together
+        </a>
+        <a href="#history">
+          Your history
+        </a>
+      </nav>
+      <section id="explore">
+        <div class="section-top">
+          <div>
+            <div class="eyebrow">
+              PICK YOUR PARAMETERS
+            </div>
+            <h2>
+              What's the vibe?
+            </h2>
+          </div>
+          <button id="reset" class="text-button">
+            Reset filters ↺
+          </button>
+        </div>
+        <div class="filters">
+          <label>
+            THE MOOD
+            <select id="mood">
+              <option value="any">
+                Anything goes
+              </option>
+              <option value="chill">
+                Chill & cozy
+              </option>
+              <option value="creative">
+                Get creative
+              </option>
+              <option value="competitive">
+                Friendly competition
+              </option>
+              <option value="adventure">
+                A little adventure
+              </option>
+            </select>
+          </label>
+          <label>
+            YOUR BUDGET
+            <select id="budget">
+              <option value="any">
+                Any budget
+              </option>
+              <option value="0">
+                Free
+              </option>
+              <option value="10">
+                Up to $10 / person
+              </option>
+              <option value="25">
+                Up to $25 / person
+              </option>
+            </select>
+          </label>
+          <label>
+            YOUR CREW
+            <select id="crew">
+              <option value="any">
+                Any group size
+              </option>
+              <option value="1">
+                Just me
+              </option>
+              <option value="2">
+                Two people
+              </option>
+              <option value="4">
+                3–4 people
+              </option>
+              <option value="6">
+                5–6 people
+              </option>
+            </select>
+          </label>
+          <label>
+            TIME TO SPARE
+            <select id="time">
+              <option value="any">
+                No rush
+              </option>
+              <option value="30">
+                30 minutes
+              </option>
+              <option value="60">
+                One hour
+              </option>
+              <option value="120">
+                Two hours
+              </option>
+            </select>
+          </label>
+        </div>
+        <div class="filter-extra">
+          <label class="check-label">
+            <input type="checkbox" id="hide-completed">
+            Hide activities I've completed
+          </label>
+          <label class="check-label">
+            <input type="checkbox" id="use-supplies">
+            Match what I have available
+          </label>
+        </div>
+        <fieldset id="supplies-panel" hidden>
+          <legend>
+            Available supplies & access
+          </legend>
+          <p class="help">
+            Select what you can use. An activity appears only if all its main requirements are selected. Everyday essentials and transport are not included; check the plan before leaving.
+          </p>
+          <div id="supply-options" class="supply-grid">
+          </div>
+        </fieldset>
+        <div class="results-top">
+          <p id="result-count" role="status">
+          </p>
+          <button id="surprise" class="dark">
+            ✳ Pick for us
+          </button>
+        </div>
+        <div id="cards" class="cards">
+        </div>
+        <div id="empty" hidden class="empty">
+          <h3>
+            No plans match just yet.
+          </h3>
+          <p>
+            Try more time, another mood, or additional supplies.
+          </p>
+          <button id="empty-reset" class="outline">
+            Clear filters
+          </button>
+        </div>
+        <div id="more-area" class="center" hidden>
+          <button id="more" class="outline">
+            Show more ideas
+          </button>
+        </div>
+      </section>
+      <section id="kits" class="feature-section">
+        <div class="eyebrow">
+          DON'T JUST PICK IT. PLAY IT.
+        </div>
+        <h2>
+          Your evening, ready to go.
+        </h2>
+        <div class="actions"><button class="outline" data-collection="trivia">My saved questions & hunt items ↗</button></div>
+        <div class="kit-grid">
+          <article class="kit-card">
+            <span class="kit-icon">
+              🔎
+            </span>
+            <h3>
+              Scavenger hunt
+            </h3>
+            <p>
+              100 indoor and 100 outdoor prompts, plus your own. New checklists each time.
+            </p>
+            <button class="dark" data-kit="hunt">
+              Start hunting ↗
+            </button>
+          </article>
+          <article class="kit-card">
+            <span class="kit-icon">
+              💡
+            </span>
+            <h3>
+              Trivia night
+            </h3>
+            <p>
+              500 questions, your own saved questions, answer reveals, and team scores.
+            </p>
+            <button class="dark" data-kit="trivia">
+              Start trivia ↗
+            </button>
+          </article>
+          <article class="kit-card">
+            <span class="kit-icon">
+              🏆
+            </span>
+            <h3>
+              Tournament bracket
+            </h3>
+            <p>
+              Add 2–16 players or teams. Choose winners and follow the road to the final.
+            </p>
+            <button class="dark" data-kit="bracket">
+              Build a bracket ↗
+            </button>
+          </article>
+        </div>
+      </section>
+      <section id="voting" class="feature-section">
+        <div class="eyebrow">
+          ONE PHONE. A SHARED PLAN.
+        </div>
+        <h2>
+          Decide together.
+        </h2>
+        <p class="section-copy">
+          Take turns voting Yes, Maybe, or Pass. We'll rank up to 12 plans from your current filters. This is a casual pass-the-phone game, not a private ballot.
+        </p>
+        <div class="panel" id="vote-panel">
+        </div>
+      </section>
+      <section id="history" class="feature-section">
+        <div class="section-top">
+          <div>
+            <div class="eyebrow">
+              LESS REPEATING. MORE EXPLORING.
+            </div>
+            <h2>
+              Been there. Did that.
+            </h2>
+          </div>
+          <button id="clear-history" class="text-button">
+            Clear history
+          </button>
+        </div>
+        <p class="section-copy">
+          Mark an activity as done from its plan. Rate it here to remember what worked. Everything stays in this browser.
+        </p>
+        <div id="history-list">
+        </div>
+      </section>
+      <section class="bottom-note">
+        <span>
+          ↗
+        </span>
+        <div>
+          <h2>
+            The best plans don't need to be big.
+          </h2>
+          <p>
+            Just a little different from yesterday.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class="logo" href="#">
+        tonight
+        <span>
+          ✳
+        </span>
+      </a>
+      <p>
+        Created by RBC Studios
+      </p>
+      <small>
+        Data stays in this browser. Costs are estimates; check local prices and access. No shared accounts or live venue listings.
+      </small>
+    </footer>
+    <p id="storage-warning" class="storage-warning" role="status" hidden>
+      Browser storage is unavailable. Your changes work now but may not survive a refresh.
+    </p>
+    <dialog id="detail">
+      <button id="close" class="close" aria-label="Close activity">
+        ✕
+      </button>
+      <div id="detail-content">
+      </div>
+      <button id="another" class="dark">
+        ↻ Pick another
+      </button>
+    </dialog>
+    <dialog id="kit-dialog">
+      <button id="close-kit" class="close" aria-label="Close kit">
+        ✕
+      </button>
+      <div id="kit-content">
+      </div>
+    </dialog>
+  </body>
+</html>
