@@ -2,8 +2,6 @@
 
 **Less deciding. More doing.**
 
-Created by RBC Studios 
-
 Tonight helps you find something to do based on your mood, budget, available time, group size, and supplies. Browse nine featured ideas, filter the full catalog of 750 activities, or let the site pick one for you.
 
 **[Try Tonight](https://bobbyvader21.github.io/tonight/)**
